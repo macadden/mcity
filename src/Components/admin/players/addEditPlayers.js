@@ -94,7 +94,7 @@ class AddEditPlayers extends Component {
 
     }
 
-    updateFields = (player, playerId, type, defaultImg) => {
+    updateFields = (player, playerId, formType, defaultImg) => {
         const newFormdata = {...this.state.formdata}
 
         for(let key in newFormdata){

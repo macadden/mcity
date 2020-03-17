@@ -22,7 +22,7 @@ class TheTeam extends Component {
             for(let key in players){
                 promises.push(
                     new Promise((resolve, reject)=>{
-                        firebase.storage.ref('players')
+                        firebase.storage().ref('players')
                         .child(players[key].image).getDownloadURL()
                         .then( url => {
                             players[key].url = url;

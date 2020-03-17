@@ -47,41 +47,41 @@ class MatchesList extends Component {
 
                 {(nodes)=>( //"nodes" es una lista con todas las iteraciones de todos los elementos de mis listas. 
                     <div>
-                        {nodes.map(({ key, data, state: { x, opacity } }) => ( //El "state" es del "NodeGroup", NO el de "MatchesList".
-                            <div
-                                key={key}
-                                className="match_box_big">
-                                style={{
-                                    opacity,
-                                    transform: `translate(${x}px)`
-                                }} 
+                        {nodes.map(({key, data, state: {x, opacity}}) => { //El "state" es del "NodeGroup", NO el de "MatchesList".
+                            let obj = {opacity, transform: `translate(${x}px)`}
+                            return  (   
+                                <div
+                                    key={key}
+                                    className="match_box_big">
+                                    style={obj} 
                                 >
-                                <div className="block_wraper" /**OJO: "wraper" con una sola "p" por una cuestión de CSS. Puede que haya que arreglar otras cosas similares con "wraper".*/> 
-                                    <div className="block">
-                                        <div
-                                            className="icon"
-                                            style={{ background: `url(/images/team_icons/${data.localThmb}.png)` }}></div>
-                                        <div className="team">{data.local}</div>
-                                        <div className="result">{data.resultLocal}</div>
+                                    <div className="block_wraper" /**OJO: "wraper" con una sola "p" por una cuestión de CSS. Puede que haya que arreglar otras cosas similares con "wraper".*/> 
+                                        <div className="block">
+                                            <div
+                                                className="icon"
+                                                style={{ background: `url(/images/team_icons/${data.localThmb}.png)` }}></div>
+                                            <div className="team">{data.local}</div>
+                                            <div className="result">{data.resultLocal}</div>
 
+                                        </div>
+                                        <div className="block">
+                                            <div
+                                                className="icon"
+                                                style={{ background: `url(/images/team_icons/${data.awayThmb}.png)` }}></div>
+                                            <div className="team">{data.away}</div>
+                                            <div className="result">{data.resultAway}</div>
+
+                                        </div>
                                     </div>
-                                    <div className="block">
-                                        <div
-                                            className="icon"
-                                            style={{ background: `url(/images/team_icons/${data.awayThmb}.png)` }}></div>
-                                        <div className="team">{data.away}</div>
-                                        <div className="result">{data.resultAway}</div>
+                                    <div className="block_wraper nfo">
+                                        <div><strong>Date:</strong>{data.date}</div>
+                                        <div><strong>Stadium:</strong>{data.stadium}</div>
+                                        <div><strong>Referee:</strong>{data.referee}</div>
 
                                     </div>
                                 </div>
-                                <div className="block_wraper nfo">
-                                    <div><strong>Date:</strong>{data.date}</div>
-                                    <div><strong>Stadium:</strong>{data.stadium}</div>
-                                    <div><strong>Referee:</strong>{data.referee}</div>
-
-                                </div>
-                            </div>
-                        ))}
+                            )
+                        })}
                     </div>
                 )}
 
